@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>My New Friend's Profile Page</title>
+	</head>
+	<body>
+		<h1>Duy's Profile Page</h1>
+
+		<div>Sept 12, 1991</div>
+
+		<ul>
+			<li>Loves Superman!</li>
+			<li>Hates Batman!</li>
+			<li>Love Dead Pool!</li>
+		</ul>
+
+		<div>UCSD - GPA 4.1</div>
+
+		<form>
+			<div>
+				<label>
+					Name: <input type="text" name="name">
+				</label>
+			</div>
+			<div>
+				<label>
+					NCG: <input type="checkbox" name="ncg">
+				</label>
+			</div>
+			<div>
+				<fieldset>
+					<legend>Home Country:</legend>
+					<div>
+						<label>
+							<input type="radio" name="home-country" value="India"> India
+						</label>
+					</div>
+					<div>
+						<label>
+							<input type="radio" name="home-country" value="Vietnam"> Vietnam
+						</label>
+					</div>
+					<div>
+						<label>
+							<input type="radio" name="home-country" value="China"> China
+						</label>
+					</div>
+					<div>
+						<label>
+							<input type="radio" name="home-country" value="United States"> United States
+						</label>
+					</div>
+				</fieldset>
+			</div>
+
+			<div>
+				<label>School:
+					<select name="school" size="3" multiple>
+						<option value="">Select One...</option>
+						<optgroup label="West Coast">
+							<option value="UCSD">University of California at San Diego</option>
+							<option value="SJSU">San Jose State University</option>
+						</optgroup>
+						<optgroup label="East Coast">
+							<option value="NCSU">North Carolina State University</option>
+							<option value="NEU">North Eastern University</option>
+						</optgroup>
+					</select>
+				</label>
+			</div>
+
+			<div>
+				<label>Comments:
+					<textarea name="comments"></textarea>
+				</label>
+			</div>
+
+			<button type="button">Submit Form</button>
+
+		</form>
+
+	</body>
+</html>
