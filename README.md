@@ -13,3 +13,9 @@ Eric Greene
  - Afternoon #2: 3:40pm to 3:50pm
 
 ## Class Introductions...
+
+## Links
+
+- https://github.com/getify/You-Dont-Know-JS - Up and Going Tonight
+- https://specificity.keegan.st/
+- http://www.w3schools.com/cssref/css_selectors.asp
