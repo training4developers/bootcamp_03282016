@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<script>
+
+			"use strict";
+
+			var parent = {
+				amount: 2000
+			};
+
+			var child = Object.create(parent);
+			child.name = "Bob Martin";
+
+			console.log(child.amount);
+
+			child.amount = 3000;
+			console.log(child.amount);
+
+			console.dir(child);
+
+			console.log(parent === Object.getPrototypeOf(child));
+
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<script>
+
+			// var o = {
+			// 	doIt: function() {
+			// 		console.log("did it!");
+			// 		console.dir(this);
+			// 	}
+			// };
+			//
+			// o.doIt();
+			//
+			// var u = {
+			// 	doItToo: o.doIt
+			// };
+			//
+			// u.doItToo();
+			//
+			// console.log(o.doIt === u.doItToo);
+
+			"use strict";
+
+			var x=0, y=0, funcs=[];
+
+			for (; x<5; x++) {
+				(function(g) {
+					//var g = x;
+					funcs.push(function() {
+						console.log(g);
+					});
+				})(x);
+			}
+
+			for (; y<5; y++) {
+				funcs[y]();
+			}
+
+		</script>
+
+	</body>
+</html>

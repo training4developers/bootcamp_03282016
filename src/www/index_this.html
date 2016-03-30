@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<script>
+
+			"use strict";
+
+			function doIt(a,b) {
+
+				//function doItAgain() {
+
+					console.log(this);
+					console.log(a,b);
+				//}
+
+				//doItAgain();
+			}
+
+			var o = {
+				id: 2,
+				doIt: doIt
+			};
+
+			window.doIt();
+
+			o.doIt();
+
+			console.log(window.doIt === o.doIt);
+
+			// o.doIt
+			// window.doIt
+			// doIt
+
+			o.doIt.call({ intuit: "rocks", sf49rs: "great" }, 1, 2);
+
+			o.doIt.apply({ intuit: "rocks", sf49rs: "great" }, [1, 2]);
+
+			var fn = o.doIt.bind({ google: "easy", sjsu: "awesome" });
+
+			fn.call({ "china": "pretty", "largest_city": "Beijing" });
+
+			console.log(o.doIt === fn);
+
+			function bindFn(fn, valueOfThis) {
+				return function() {
+					fn.call(valueOfThis);
+				};
+			}
+
+			var fn2 = bindFn(o.doIt, { "china": "pretty", "largest_city": "Beijing" });
+
+			fn2();
+
+			//o.doIt(1,2);
+
+			var g = new doIt();
+
+			function DoIt() {
+				
+			}
+
+
+		</script>
+
+	</body>
+</html>

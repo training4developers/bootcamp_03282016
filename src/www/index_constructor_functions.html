@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<script>
+
+			"use strict";
+
+
+			// nothing than a factory
+			function Person(firstName, lastName) {
+				this.firstName = firstName;
+				this.lastName = lastName;
+			}
+
+			Person.prototype.getFullName = function() {
+				return this.firstName + " " + this.lastName;
+			};
+
+			//Person.__proto__
+
+			var p = new Person("Kevin", "Feutz");
+			console.log(p.getFullName());
+
+			var p2 = new Person("Jonathan", "Smith");
+			console.log(p2.getFullName());
+
+			console.log(p.getFullName === p2.getFullName);
+
+
+			// console.dir(p);
+			// console.log(Object.getPrototypeOf(p) === Person.prototype);
+
+		</script>
+
+	</body>
+</html>

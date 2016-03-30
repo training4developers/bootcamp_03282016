@@ -8,39 +8,40 @@
 
 		<script>
 
-			// var o = {
-			// 	doIt: function() {
-			// 		console.log("did it!");
-			// 		console.dir(this);
-			// 	}
-			// };
-			//
-			// o.doIt();
-			//
-			// var u = {
-			// 	doItToo: o.doIt
-			// };
-			//
-			// u.doItToo();
-			//
-			// console.log(o.doIt === u.doItToo);
-
 			"use strict";
 
-			var x=0, y=0, funcs=[];
-
-			for (; x<5; x++) {
-				(function(g) {
-					//var g = x;
-					funcs.push(function() {
-						console.log(g);
-					});
-				})(x);
+			function inherits(Child, Parent) {
+				Child.prototype = Object.create(	Parent.prototype);
+				Child.prototype.constructor = Child;
+				Child.prototype._super = Parent;
 			}
 
-			for (; y<5; y++) {
-				funcs[y]();
+			function Person(firstName, lastName) {
+				this.firstName = firstName;
+				this.lastName = lastName;
 			}
+
+			Person.prototype.getFullName = function() {
+				return this.firstName + " " + this.lastName;
+			};
+
+			function Student(studentId, firstName, lastName) {
+				this._super.call(this, firstName, lastName);
+				this.studentId = studentId;
+			}
+
+			inherits(Student, Person);
+
+			Student.prototype.getRecordInfo = function() {
+				return this.studentId + " " + this.lastName + ", " + this.firstName;
+			}
+
+			var s = new Student(1, "Raj", "Balsubramanium");
+			console.log(s.getRecordInfo());
+			console.log(s.getFullName());
+
+
+
 
 		</script>
 
