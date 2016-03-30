@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<script>
+
+			var t;
+			console.log(typeof t);
+			t = "Hi Class!"
+			console.log(typeof t);
+			t = 42;
+			console.log(typeof t);
+			t = true;
+			console.log(typeof t);
+			t = Symbol();
+			console.log(typeof t);
+			t = null;
+			console.log(typeof t);
+			t = {};
+			console.log(typeof t);
+			t = [];
+			console.log(typeof t);
+			console.log(t instanceof Array);
+			t = function() {
+
+			};
+			console.log(typeof t);
+
+			// duck typing
+			var p = new Promise();
+			
+			if (p.then) {
+
+			}
+
+
+
+
+
+		</script>
+
+	</body>
+</html>

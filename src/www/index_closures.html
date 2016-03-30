@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<script>
+
+			"use strict";
+
+			function inner() {
+				console.log(t);
+			}
+
+			function outer() {
+
+				var t = 23;
+
+				setTimeout(function to1() {
+					t = 32;
+				}, 1000);
+
+				console.log("value of t: " + t);
+				return inner;
+
+			}
+
+			var doIt = outer();
+			doIt();
+
+			setTimeout(function to2() {
+				doIt();
+			}, 2000);
+
+			console.dir(doIt);
+
+		</script>
+
+	</body>
+</html>

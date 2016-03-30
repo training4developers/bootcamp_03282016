@@ -1,54 +1,48 @@
 <!DOCTYPE html>
 
-<html dir="ltr">
+<html>
 	<head>
-		<title>Flexbox Demo</title>
-		<style>
-
-		.container {
-			position:absolute;
-			top:0;bottom:0;left:0;right:0;
-			box-sizing:border-box;
-			border:2px dashed green;
-			padding:5px;
-			height:100%;
-			display:flex;
-			flex-direction: column;
-			flex-wrap:wrap;
-			justify-content:space-around;
-			align-items:center;
-		}
-
-		.container > div {
-			border: 2px solid blue;
-			padding:5px;
-			/*width:100px;*/
-			/*order:3;*/
-			/*flex-grow: 1;*/
-
-		}
-
-		.container > div:nth-child(3) {
-			/*align-self:stretch;*/
-			order:1;
-			flex-grow:4;*/
-		}
-
-		.container > div:nth-child(2) {
-			/*flex-basis: 100px;*/
-		}
-		</style>
+		<title>JavaScript</title>
 	</head>
 	<body>
 
-		<div class="container">
-			<div>A</div>
-			<div>B</div>
-			<div>C</div>
-			<div>D</div>
-			<div>E</div>
-		</div>
+		<script>
 
+			// var o = {
+			// 	doIt: function() {
+			// 		console.log("did it!");
+			// 		console.dir(this);
+			// 	}
+			// };
+			//
+			// o.doIt();
+			//
+			// var u = {
+			// 	doItToo: o.doIt
+			// };
+			//
+			// u.doItToo();
+			//
+			// console.log(o.doIt === u.doItToo);
+
+			"use strict";
+
+			var x=0, y=0, funcs=[];
+
+			for (; x<5; x++) {
+				(function(g) {
+					//var g = x;
+					funcs.push(function() {
+						console.log(g);
+					});
+				})(x);
+			}
+
+			for (; y<5; y++) {
+				funcs[y]();
+			}
+
+		</script>
 
 	</body>
 </html>
