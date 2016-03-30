@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<button id="my-favorite-super-cool-amazing-life-changing-button">Do It!</button>
+
+		<script>
+
+			"use strict";
+
+
+			document.querySelector("button").addEventListener("click", function(e) {
+
+				console.log("call setTimeout!");
+
+
+				try {
+
+					function doIt() {
+
+						throw Error("Hemanth is not the He-Man of JavaScript!");
+						//console.log("Hemanth is the He-Man of JavaScript!")
+					}
+
+
+					doIt();
+
+				} catch(err) {
+					console.log("caught error");
+					console.log(err);
+				}
+
+
+			});
+
+			console.log("waiting...");
+
+		</script>
+
+	</body>
+</html>

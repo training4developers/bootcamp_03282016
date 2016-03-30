@@ -10,37 +10,25 @@
 
 			"use strict";
 
-			function inherits(Child, Parent) {
-				Child.prototype = Object.create(	Parent.prototype);
-				Child.prototype.constructor = Child;
-				Child.prototype._super = Parent;
+			var p1 = new Promise(function(resolve) {
+				setTimeout(function() {
+					resolve("it worked!");
+				}, 10000);
+			});
+
+			function timeoutPromise(delay) {
+				return new Promise(function(resolve, reject) {
+					setTimeout(function() {
+						reject("timeout expired!");
+					}, delay);
+				});
 			}
 
-			function Person(firstName, lastName) {
-				this.firstName = firstName;
-				this.lastName = lastName;
-			}
-
-			Person.prototype.getFullName = function() {
-				return this.firstName + " " + this.lastName;
-			};
-
-			function Student(studentId, firstName, lastName) {
-				this._super.call(this, firstName, lastName);
-				this.studentId = studentId;
-			}
-
-			inherits(Student, Person);
-
-			Student.prototype.getRecordInfo = function() {
-				return this.studentId + " " + this.lastName + ", " + this.firstName;
-			}
-
-			var s = new Student(1, "Raj", "Balsubramanium");
-			console.log(s.getRecordInfo());
-			console.log(s.getFullName());
-
-
+			Promise.race([p1, timeoutPromise(5000)]).then(function(results) {
+				console.log(results)
+			}).catch(function(results) {
+				console.log(results);
+			});
 
 
 		</script>

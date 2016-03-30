@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<script>
+
+			"use strict";
+
+			// undefined === resolved promise
+			// any other value === resolved promise
+			// Promise === ?
+			// throw Error === rejected promise
+			// Promise.reject === rejected promise
+
+			var p = new Promise(function(resolve) {
+				resolve();
+			});
+
+			p.then(function() {
+				console.log("a");
+				return "Vietnam Rocks!";
+			}).then(function(results) {
+				console.log(results);
+				console.log("b");
+			}).then(function() {
+				throw Error("timeout");
+				console.log("c");
+			}).then(function() {
+				console.log("d");
+			}).then(function() {
+				console.log("e");
+			}).then(function() {
+				console.log("f");
+			}).then(function() {
+				console.log("g");
+			}).then(function() {
+				console.log("h");
+			}).catch(function() {
+				console.log("caught error");
+			});
+
+
+		</script>
+
+	</body>
+</html>

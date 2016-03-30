@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<script>
+
+			"use strict";
+
+			doIt();
+
+			// function declaration
+			function doIt() {
+
+			}
+
+
+			doIt();
+
+			// function expression
+			var doIt = function() {
+
+			}
+
+			(function doIt() {
+
+			})
+
+
+
+			// var person = {
+			// 	firstName: "Julie",
+			// 	lastName: "Caesar"
+			// };
+			//
+			// person.age = 2000;
+
+			var person = {};
+
+			// Object.defineProperties(person, {
+			// 	"firstName" : {
+			//
+			// 	},
+			// 	"lastName" {
+			//
+			// 	}
+			// });
+			//
+			// person.hasOwnProperty("firstName");
+
+			function Person() {
+
+			}
+
+			Object.defineProperty(Person.prototype, "firstName", {
+				configurable: true,
+				enumerable: true,
+				// value: "Julie",
+				// writable: false
+				get: function() {
+					console.log("get firstname");
+					return this._firstName;
+				},
+				set: function(value) {
+					console.log("set firstname");
+					this._firstName = value;
+				}
+			});
+
+			console.dir(person);
+
+			person.firstName = "Pragathi";
+
+			//Object.preventExtensions(person);
+			Object.freeze(person);
+
+			console.log(Object.isFrozen(person));
+
+			person.firstName = "Kevin";
+
+			//person.lastName = "Sanshi";
+
+			console.log(person.firstName);
+
+			for (var prop in person) {
+				console.log(prop);
+			}
+
+
+		</script>
+
+	</body>
+</html>

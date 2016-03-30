@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<script>
+
+			"use strict";
+
+			// function Person() {
+			//
+			// }
+			//
+			// // static
+			// Person.createSmith = function(firstName) {
+			// 	return new Person(firstName, "Smith");
+			// };
+			//
+			// var p = Person.createSmith("Jonathan");
+
+			class Person {
+
+			}
+
+			var Person = class {
+
+			}
+
+
+			class Person {
+
+				constructor(firstName, lastName) {
+					this._firstName = firstName; // instance properties
+					this._lastName = lastName;
+				}
+
+				// prototype properties
+				getFullName() {
+					return this.firstName + " " + this.lastName;
+				}
+
+				static create(firstName, lastName) {
+					return new Person(firstName, lastName);
+				}
+
+				get firstName() {
+					return this._firstName;
+				}
+
+				set firstName(value) {
+					this._firstName = value;
+				}
+
+				get lastName() {
+					return this._lastName;
+				}
+
+				set lastName(value) {
+					this._lastName = value;
+				}
+
+			}
+
+			class Student extends Person {
+
+				constructor(studentId, firstName, lastName) {
+					super(firstName, lastName);
+					this.studentId = studentId;
+				}
+
+			}
+
+			var p = Person.create("Bob", "Martin");
+			console.dir(p);
+			console.dir(Person);
+
+
+
+
+		</script>
+
+	</body>
+</html>

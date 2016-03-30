@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<script>
+
+			"use strict";
+
+			function inherits(Child, Parent) {
+				Child.prototype = Object.create(	Parent.prototype);
+				Child.prototype.constructor = Child;
+				Child.prototype._super = Parent;
+			}
+
+			function Person(firstName, lastName) {
+				this.firstName = firstName;
+				this.lastName = lastName;
+			}
+
+			Person.prototype.getFullName = function() {
+				return this.firstName + " " + this.lastName;
+			};
+
+			function Student(studentId, firstName, lastName) {
+				this._super.call(this, firstName, lastName);
+				this.studentId = studentId;
+			}
+
+			inherits(Student, Person);
+
+			Student.prototype.getRecordInfo = function() {
+				return this.studentId + " " + this.lastName + ", " + this.firstName;
+			}
+
+			var s = new Student(1, "Raj", "Balsubramanium");
+			console.log(s.getRecordInfo());
+			console.log(s.getFullName());
+
+
+
+
+		</script>
+
+	</body>
+</html>

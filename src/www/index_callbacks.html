@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<button id="my-favorite-super-cool-amazing-life-changing-button">Do It!</button>
+
+		<script>
+
+			"use strict";
+
+			// function bindFn(fn, valueOfThis) {
+			// 	return function() {
+			// 		fn.call(valueOfThis);
+			// 	}
+			// }
+
+			var o = {
+				id: 2,
+				name: "Vaibhav",
+				doIt: function() {
+					console.log(this)
+				}
+			};
+
+			o.doIt();
+
+			document.querySelector("button").addEventListener("click", function(e) {
+
+				console.log("call setTimeout!");
+
+				setTimeout(o.doIt,3000);
+
+			});
+
+			console.log("waiting...");
+
+		</script>
+
+	</body>
+</html>

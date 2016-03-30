@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<script>
+
+			"use strict";
+
+			function pFactory(willResolve, results, label, delay) {
+				return new Promise(function(resolve, reject) {
+					setTimeout(function() {
+						if (willResolve) {
+							console.log("promise resolved: " + label)
+							resolve(results);
+						} else {
+							console.log("promise rejected: " + label)
+							reject(results);
+						}
+					}, delay);
+				});
+			}
+
+			var
+				p1 = pFactory(true, "a", "p1", 2000),
+				p2 = pFactory(true, "b", "p2", 4000),
+				p3 = pFactory(false, "c", "p3", 6000),
+				p4 = pFactory(true, "d", "p4", 8000);
+
+				p1.then(function() {
+					console.log("another chain off the promise");
+				})
+
+				p1.then(function() {
+					console.log("another chain off the promise");
+				})
+
+				var p5 = Promise.all([p1,p2]);
+
+				p5.then(function() {
+					console.log("p1 and p2 done");
+				});
+
+				Promise.all([p5,p3,p4]).then(function(results) {
+					console.log("all done");
+					console.log(results);
+				}).catch(function(results) {
+					console.log("one rejected");
+					console.log(results);
+				});
+
+
+
+
+
+		</script>
+
+	</body>
+</html>

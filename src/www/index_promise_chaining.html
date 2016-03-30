@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<button id="my-favorite-super-cool-amazing-life-changing-button">Do It!</button>
+
+		<script>
+
+			"use strict";
+														// her brain
+			var tony = new Promise(function(resolve, reject) {
+
+				setTimeout(function() {
+
+					var
+						goodJob = true,
+						likesCats = true,
+						ownsACar = true,
+						hasAnIPhone = true;
+
+					if (goodJob && likesCats && ownsACar && hasAnIPhone) {
+						console.log("she says yes!");
+						resolve("her parents are making her...");
+					} else {
+						console.log("she says no!");
+						reject("because she loves his friend...");
+					}
+
+				}, 3000);
+
+			});
+
+			tony.then(function(results) {
+				console.log(results);
+				console.log("tony is going to be very very happy!");
+
+
+				console.log("planning the bachelor party!!!");
+				return new Promise(function(resolve, reject) {
+
+					setTimeout(function() {
+						resolve("all done planning the party!");
+					},3000)
+				})
+			}).then(function(results) {
+
+				console.log(results);
+				console.log("tony apologizes to kelly");
+
+				console.log("kelly is deciding whether or not to forgive...");
+				return new Promise(function(resolve, reject) {
+
+					setTimeout(function() {
+						resolve("kelly forgives!");
+					},3000)
+				})
+
+			}).then(function(results) {
+					console.log(results);
+					console.log("tony is happy again!");
+			});
+
+			console.log("tony is constantly checking his phone...");
+
+
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<button id="my-favorite-super-cool-amazing-life-changing-button">Do It!</button>
+
+		<script>
+
+			"use strict";
+
+			function doIt() {
+
+				try {
+					console.log("try");
+					return function() {
+						throw Error("an error occurred");
+					};
+				} catch(err) {
+
+				} finally {
+					console.log("finally");
+				}
+
+			}
+
+			var g = doIt();
+			g();
+
+
+		</script>
+
+	</body>
+</html>
