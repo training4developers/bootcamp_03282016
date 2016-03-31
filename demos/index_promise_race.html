@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<script>
+
+			"use strict";
+
+			var p1 = new Promise(function(resolve) {
+				setTimeout(function() {
+					resolve("it worked!");
+				}, 10000);
+			});
+
+			function timeoutPromise(delay) {
+				return new Promise(function(resolve, reject) {
+					setTimeout(function() {
+						reject("timeout expired!");
+					}, delay);
+				});
+			}
+
+			Promise.race([p1, timeoutPromise(5000)]).then(function(results) {
+				console.log(results)
+			}).catch(function(results) {
+				console.log(results);
+			});
+
+
+		</script>
+
+	</body>
+</html>
