@@ -1,26 +1,47 @@
 "use strict";
 
+import mongoose from "mongoose";
 import express from "express";
+import bodyParser from "body-parser";
+import rest from "./routers/rest";
 
 export default function(config) {
 
-	let app = express();
+	mongoose.connect(`mongodb://${config.mongoServer.host}:${config.mongoServer.port}/${config.mongoServer.dbName}`);
 
-	// http://localhost:8080/libs/jquery/dist/jquery.js
+	let restRouters = [rest("account")];
 
-	app.use("/libs", express.static("./node_modules"));
+	return Promise.all(restRouters).then((accountRouter) => {
 
-	app.use(express.static(config.webServer.folder));
+		let app = express();
 
-	app.listen(config.webServer.port, (err) => {
+		app.use("/api", bodyParser.json());
+		app.use("/api", accountRouter);
 
-		if (err) {
-			console.log(err);
-			return;
-		}
+		app.use("/libs", express.static("./node_modules"));
+		app.use(express.static(config.webServer.folder));
 
-		console.log(`web server started on port ${config.webServer.port}`);
+		return app;
 
+	}).then((app) => {
+
+		return new Promise((resolve, reject) => {
+			app.listen(config.webServer.port, (err) => {
+				if (err) {
+					reject(err);
+					return;
+				}
+				app.config = config.webServer;
+				resolve(app);
+			});
+		});
+
+	})
+	.then((app) => {
+		console.log(`web server started on port ${app.config.port}`);
+	})
+	.catch((err) => {
+		console.log(err);
 	});
 
 }

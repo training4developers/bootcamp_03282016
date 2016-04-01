@@ -10,6 +10,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	//var allFavs2 = $("ul").find(".favorite");
 
-
-
 });
