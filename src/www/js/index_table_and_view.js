@@ -87,6 +87,25 @@ function showView(account) {
 	$("body").append(view);
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+	
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+});
+
+$(document).ready(function() {
+
+});
+
+$(function() {
+
+});
+
+$(() => {
+
+});
 
 $(() => {
 

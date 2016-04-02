@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 		mongoServer: {
 			host: "localhost",
 			port: 27017,
-			dbName: "t4dclass"
+			dbName: "bootcamp"
 		},
 		copy: {
 			main: {

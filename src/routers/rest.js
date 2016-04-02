@@ -14,6 +14,7 @@ export default function(modelName) {
 
 	return System.import(path.join(__dirname, `../mongoose/${collectionName}`)).then((DataModel) => {
 
+		// collection uri
 		router.route("/" + collectionName)
 			.get(function(req, res) {
 				DataModel.find({}, function(err, results) {
@@ -37,6 +38,7 @@ export default function(modelName) {
 				});
 			});
 
+		// element uri
 		router.route("/" + collectionName + "/:id")
 			.get(function(req, res) {
 				DataModel.findById(req.params.id,
