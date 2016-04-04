@@ -45,6 +45,10 @@ dispatcher.register(function(action) {
 			_widgets = action.widgets;
 			widgetStore.emitChange();
 			break;
+		case actions.WIDGETS_INSERT:
+			_widgets = action.widgets;
+			widgetStore.emitChange();
+			break;
 		default:
 			// no operation
 			break;
