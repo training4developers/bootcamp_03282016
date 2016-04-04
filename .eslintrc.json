@@ -1,38 +1,41 @@
 {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true,
-        "node": true
-    },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
-        },
-				"sourceType": "module"
-    },
-    "plugins": [
+	"env": {
+		"browser": true,
+		"commonjs": true,
+		"es6": true,
+		"node": true
+	},
+	"extends": "eslint:recommended",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"experimentalObjectRestSpread": true,
+			"jsx": true
+		},
+		"sourceType": "module"
+	},
+	"plugins": [
         "react"
     ],
-    "rules": {
-        "indent": [
+	"rules": {
+		"indent": [
             "error",
-            "tab"
+            "tab",
+			{
+				"SwitchCase": 1
+			}
         ],
-        "linebreak-style": [
+		"linebreak-style": [
             "error",
             "unix"
         ],
-        "quotes": [
+		"quotes": [
             "error",
             "double"
         ],
-        "semi": [
+		"semi": [
             "error",
             "always"
         ],
-				"no-console":0
-    }
+		"no-console": 0
+	}
 }
