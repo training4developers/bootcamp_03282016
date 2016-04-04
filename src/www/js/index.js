@@ -1,13 +1,16 @@
 "use strict";
 
-import $ from 'jquery';
+import $ from "jquery";
 import widgetActions from "./actions/widgets";
 import widgetStore from "./stores/widgets";
 import UnorderedList from "./components/unorderedList";
+import WidgetForm from "./components/widgetForm";
 
 $(function() {
-	var ul1 = new UnorderedList(document.querySelector("#first-list"), widgetStore);
-	var ul2 = new UnorderedList(document.querySelector("#second-list"), widgetStore);
+	new UnorderedList(document.querySelector("#first-list"), widgetStore);
+	new UnorderedList(document.querySelector("#second-list"), widgetStore);
+	var widgetForm = new WidgetForm(document.querySelector("#widget-form"), widgetActions);
+	widgetForm.render();
 	widgetActions.refresh();
 });
 
