@@ -21,6 +21,8 @@ Eric Greene
 - http://www.w3schools.com/cssref/css_selectors.asp
 - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 - http://audio.javascriptair.com/
+- https://facebook.github.io/react/docs/videos.html
+- https://egghead.io/series/getting-started-with-redux
 
 CSS Unexpected Rules
 
