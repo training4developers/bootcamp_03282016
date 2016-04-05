@@ -43,8 +43,7 @@ store.subscribe(render);
 function render() {
 
 	ReactDOM.render(
-		React.createElement(
-			CounterDemo,
+		React.createElement(CounterDemo,
 			{
 				counter: store.getState().counter,
 				onClick: () => { store.dispatch(actionIncrement()); }

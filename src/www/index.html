@@ -6,6 +6,19 @@
 	</head>
 	<body>
 
+		<input type="text" value="K-Fed" id="name-input">
+
+		<script>
+
+			var nameInput = document.getElementById("name-input");
+
+			nameInput.addEventListener("change", function() {
+				console.log("value DOM prop: " + nameInput.value);
+				console.log("value Attribute field: " + nameInput.getAttribute("value"));
+			});
+
+		</script>
+
 		<main></main>
 		<script src="/libs/jquery/dist/jquery.js"></script>
 		<script src="/js/index.js"></script>
