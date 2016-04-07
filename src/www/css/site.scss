@@ -1,5 +1,56 @@
-$text-color: blue;
+@import "kevin-theme";
 
 body {
 	color: $text-color;
+	font-size: $font-size;
+}
+
+ul {
+	li {
+		font-family: arial;
+
+		> a {
+		color: blue;
+		}
+
+		span {
+			text-decoration: underline;
+		}
+	}
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+div {
+	@include border-radius(5px);
+}
+
+div.big-radius {
+	@include border-radius(10px);
+}
+
+.big-font {
+	font-size: 12px;
+}
+
+.topic1 {
+	@extend .big-font;
+}
+
+.topic2 {
+	@extend .big-font;
+}
+
+.topic3 {
+	@extend .big-font;
+}
+
+
+@for $i from 1 through 12 {
+  .item-#{$i} { width: $i / 12 * 100%; }
 }
