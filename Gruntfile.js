@@ -12,6 +12,16 @@ module.exports = function(grunt) {
 			port: 27017,
 			dbName: "bootcamp"
 		},
+		sass: {
+			dist: {
+				options: {
+					sourcemap: "none"
+				},
+				files: {
+					"./dist/www/css/site.css": "./src/www/css/site.scss"
+				}
+			}
+		},
 		copy: {
 			main: {
 				files: [
@@ -76,6 +86,10 @@ module.exports = function(grunt) {
 			webpack: {
 				files: ["src/www/**/*.js","src/www/**/*.jsx"],
 				tasks: ["webpack"]
+			},
+			sass: {
+				files: ["src/www/css/**/*.scss"],
+				tasks: ["sass"]
 			}
 		}
 	});
@@ -84,6 +98,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-babel");
 	grunt.loadNpmTasks("grunt-contrib-watch");
 	grunt.loadNpmTasks("grunt-webpack");
+	grunt.loadNpmTasks("grunt-contrib-sass");
 
 	grunt.registerTask("server", function() {
 		let server = require("./dist/server");
@@ -92,7 +107,7 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask("default", [
-		"copy", "babel", "webpack", "watch"
+		"sass", "copy", "babel", "webpack", "watch"
 	]);
 
 };

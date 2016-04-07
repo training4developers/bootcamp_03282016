@@ -30,6 +30,18 @@ export default class extends React.Component {
 	}
 
 	render() {
+
+		var colors = [
+			{ code: "red", caption: "Red" },
+			{ code: "blue", caption: "Blue" },
+			{ code: "periwinkle", caption: "Periwinkle" }
+		];
+
+		var options = [];
+		for (var i=0; i<colors.length; i++) {
+			options.push(<option key={colors[i].code} value={colors[i].code}>{colors[i].caption}</option>);
+		}
+
 		return <form>
 			<FormTextField fieldLabel='Name' fieldName='name' fieldValue={this.state.widget.name} fieldChange={this.onChange} />
 			<div>
@@ -41,9 +53,7 @@ export default class extends React.Component {
 				<label>
 					Color: <select name="color" value={this.state.widget.color} onChange={this.onChange}>
 						<option value="">Select One...</option>
-						<option value="red">Red</option>
-						<option value="hot pink">Hot Pink</option>
-						<option value="blue">Blue</option>
+						{options}
 					</select>
 				</label>
 			</div>
