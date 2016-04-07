@@ -34,3 +34,5 @@ node_modules
 
 # Do not commit the dist folder
 dist
+
+.sass-cache
